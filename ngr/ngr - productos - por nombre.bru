@@ -1,0 +1,42 @@
+meta {
+  name: ngr - productos - por nombre
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://ngrsa.adhoc.ar/jsonrpc
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": {
+      "service": "object",
+      "method": "execute_kw",
+      "args": [
+        "odoo",
+        "32",
+        "375K8Y6MD0FH2JJM8X51K52JG5C3IY3G1XY6C1USDQ3TL4CZ3HDLCVT3HY0HG713AAIWCGYBDV4JKN7IOE09DC7YYFNDEYAM54EW",
+        "product.product",
+        "name_search",
+        ["ádh"],
+        {
+          "operator": "ilike",
+          "limit": 50,
+          "context": {
+            "lang": "es_AR"
+          }
+        }
+      ]
+    },
+    "id": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+}

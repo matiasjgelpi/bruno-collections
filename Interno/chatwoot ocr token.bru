@@ -1,0 +1,50 @@
+meta {
+  name: chatwoot ocr token
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://127.0.0.1:8787
+  body: json
+  auth: inherit
+}
+
+headers {
+  X-OCR-Prompt: "extrae ek texto"
+  X-OCR-Model: gemini-2.5-flash-lite
+  X-OCR-Workspace: a3a67777-5afd-42ee-af31-3b528ee39e4f
+}
+
+body:json {
+  {
+    "event": "conversation_created",
+    "id": 999,
+    "meta": {
+      "sender": {
+        "name": "Matias Gelpi",
+        "email": "matias@laburen.com"
+      }
+    },
+    "messages": [
+      {
+        "content": "Hola, te mando el comprobante.",
+        "created_at": 1740000000,
+        "email": { "subject": "Comprobante de pago marzo" },
+        "attachments": [
+          {
+            "file_name": "comprobante.jpg",
+            "file_type": "image",
+            "file_size": 84321,
+            "data_url": "https://chatsappai-data.s3.amazonaws.com/organizations/clzvs0m31000242eqfkmcizv8/conversations/cmm3t0ihu0000357dr4s4xcjs/uploads/ComprobanteTransferenciaMatiasGelpi (1).jpeg"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

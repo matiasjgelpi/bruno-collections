@@ -1,0 +1,24 @@
+meta {
+  name: Descarga documentos
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://sucursal.suministra.com.ar/api/pdf_documento.php
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dni": "10400966",
+    "token": "wjkyzOBYrBQXljdAWQYasEkzJaAlsBVfQxJYnRGWkVLGMYtYieFtrxtXEudVfxaZ",
+    "documento": 22347
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

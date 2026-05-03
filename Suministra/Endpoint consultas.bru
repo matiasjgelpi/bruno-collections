@@ -1,0 +1,29 @@
+meta {
+  name: Endpoint consultas
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://sucursal.suministra.com.ar/api/nuevaConsultaIA.php
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dni": "10400966",
+    "token": "wjkyzOBYrBQXljdAWQYasEkzJaAlsBVfQxJYnRGWkVLGMYtYieFtrxtXEudVfxaZ",
+    "empresa": 11
+  }
+  // {
+  //   "dni": "34591857",
+  //   "token": "GIiLvfXtqqfZApMtLPOYmPBfzWplTijnMiiyMdYKDKMuesxGAkBDnGlRXCoyqpBG",
+  //   "empresa": 11
+  // }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

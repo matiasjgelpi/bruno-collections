@@ -1,0 +1,28 @@
+meta {
+  name: prueba buscador algolia
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://WIN7YZKDBT-dsn.algolia.net/1/indexes/Listado de precios1/query/
+  body: json
+  auth: inherit
+}
+
+headers {
+  x-algolia-api-key: 23e08ac4fa48498017f98b3c5310451a
+  x-algolia-application-id: WIN7YZKDBT
+}
+
+body:json {
+  {
+      "hitsPerPage": 30,
+      "attributesToHighlight": false,
+      "query": "icb"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

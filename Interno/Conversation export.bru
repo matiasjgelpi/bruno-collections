@@ -1,0 +1,23 @@
+meta {
+  name: Conversation export
+  type: http
+  seq: 10
+}
+
+get {
+  url: https://dashboard.laburen.com/api/agents/cmgqimsip00n4xzxmjjsn4j43/conversations-export/?channel=&status=&search=&orderBy=desc&limit=1000
+  body: none
+  auth: inherit
+}
+
+params:query {
+  channel: 
+  status: 
+  search: 
+  orderBy: desc
+  limit: 1000
+}
+
+settings {
+  encodeUrl: true
+}

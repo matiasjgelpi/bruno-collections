@@ -1,0 +1,53 @@
+meta {
+  name: prueba worker suministra - local
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:8787/adelanto
+  body: json
+  auth: inherit
+}
+
+body:json {
+  // {
+  //     "fnac": "1971-08-07",
+  //     "empresa": 11,
+  //     "dni" : "22543247"
+  // }
+  
+  
+  // {
+  //   "empresa": 11,
+  //   "celular": "2236687794",
+  //   "consulta": "Consutla de prueba"}
+  
+  
+  // {
+  // "importe": "10000",
+  // "celular": "1165095223",
+  //   "empresa" : 1
+  // }
+  
+  // {
+  // "importe": "10000",
+  // "celular": "1165095223",
+  //   "empresa" : 1
+  // }
+  
+  {
+  "importe": "10000",
+  "celular": "2236687794",
+    "empresa" : 11
+  }
+  
+  
+  
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

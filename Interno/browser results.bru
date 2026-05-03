@@ -1,0 +1,25 @@
+meta {
+  name: browser results
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://api.cloudflare.com/client/v4/accounts/bcb97c0e3a3f21d0b89225a1c0d02f62/browser-rendering/crawl/f06839ab-19a7-4a72-acc7-1abd86898135?limit=1&cursor=3
+  body: json
+  auth: bearer
+}
+
+params:query {
+  limit: 1
+  cursor: 3
+}
+
+auth:bearer {
+  token: L0fbGR3TZMnXTXF718PODmAnEIV3sw02zWciU9Da
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

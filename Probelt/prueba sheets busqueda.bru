@@ -1,0 +1,29 @@
+meta {
+  name: prueba sheets busqueda
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://script.google.com/macros/s/AKfycbzbgq1-oqqvuljgzxklYM2kWNTnLQdpw_P9snjiGu0RBt8A21g96vLNo5Hq10l9tzk5/exec
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+      {
+          "modelo": null,
+          "codigo": "Z5",
+          "cantidad": 0,
+          "descuento": null,
+          "opcionales": [
+            
+          ]
+      }
+  ]
+}
+
+settings {
+  encodeUrl: true
+}

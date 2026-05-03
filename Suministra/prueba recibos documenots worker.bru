@@ -1,0 +1,33 @@
+meta {
+  name: prueba recibos documenots worker
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://suministra.seba-e94.workers.dev/recibos
+  body: json
+  auth: inherit
+}
+
+body:json {
+  // {
+  //   "empresa": 11,
+  //   "celular": "2236687794",
+  //   "contrato": "242599",
+  //   //   "dni": "10400966",
+  //   "fnac": "1952-09-29"
+  // }
+  {
+    "empresa": 12,
+    //   "celular": "2236687794",
+    "contrato": "314083",
+    "dni": "45456645",
+    "fnac": "2003-11-10"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Enviar presupuesto
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://hooks.chatsappai.com/webhook/67690eec-e15f-48f9-8251-7d7d9831f0c1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre_cliente": "Matias Gelpi",
+    "telefono_cliente": "2236687794",
+    "modelo": "Amarok",
+    "codigo": "4225",
+    "cantidad": "1",
+    "color": "negra",
+    "mail_cliente": "matias@gmail.com"
+  }
+  
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

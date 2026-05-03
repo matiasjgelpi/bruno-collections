@@ -1,0 +1,26 @@
+meta {
+  name: browser rendering
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://api.cloudflare.com/client/v4/accounts/bcb97c0e3a3f21d0b89225a1c0d02f62/browser-rendering/pdf
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: L0fbGR3TZMnXTXF718PODmAnEIV3sw02zWciU9Da
+}
+
+body:json {
+  {
+    "html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>Presupuesto Barra NGR Volkswagen Amarok 2010</title>\n  <style>\n    body {\n      font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n      color: #222;\n      margin: 24px;\n      line-height: 1.4;\n    }\n    h1 {\n      font-size: 24px;\n      margin-bottom: 8px;\n    }\n    h2 {\n      font-size: 18px;\n      margin-top: 16px;\n      margin-bottom: 4px;\n    }\n    .box {\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      padding: 12px;\n      margin-bottom: 12px;\n    }\n    table {\n      width: 100%;\n      border-collapse: collapse;\n      margin-top: 8px;\n    }\n    th, td {\n      border: 1px solid #ddd;\n      padding: 6px 8px;\n      font-size: 14px;\n    }\n    th {\n      background-color: #f5f5f5;\n      text-align: left;\n    }\n    .total-row td {\n      font-weight: bold;\n    }\n    .footer {\n      font-size: 11px;\n      color: #666;\n      margin-top: 24px;\n    }\n  </style>\n</head>\n<body>\n  <h1>Presupuesto Barra NGR Volkswagen Amarok 2010</h1>\n\n  <div class=\"box\">\n    <h2>Datos del cliente</h2>\n    <p>\n      <strong>Nombre:</strong> Matias Gelpi<br/>\n      <strong>Teléfono:</strong> 223668794<br/>\n      <strong>Mail:</strong> matias@laburen.com<br/>\n      <strong>Canal:</strong> WhatsApp\n    </p>\n  </div>\n\n  <div class=\"box\">\n    <h2>Vehículo</h2>\n    <p>\n      <strong>Marca:</strong> Volkswagen<br/>\n      <strong>Modelo:</strong> Amarok<br/>\n      <strong>Año:</strong> 2010<br/>\n      <strong>Variante:</strong> Modelo con Laterales, Va para todos los colores de Amarok<br/>\n      <strong>Color:</strong> NEGRA SEMI MATE\n    </p>\n  </div>\n\n  <div class=\"box\">\n    <h2>Producto cotizado</h2>\n    <table>\n      <thead>\n        <tr>\n          <th>Código</th>\n          <th>Descripción</th>\n          <th>Cant.</th>\n          <th>Precio unitario (ARS)</th>\n          <th>Total (ARS)</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td>4200</td>\n          <td>Barra NGR - Modelo con Laterales, Va para todos los colores de Amarok</td>\n          <td>1</td>\n          <td>1.870.200</td>\n          <td>1.870.200</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <div class=\"box\">\n    <h2>Imágenes de referencia</h2>\n    <p>No se encontraron imágenes para este producto.</p>\n  </div>\n\n  <div class=\"footer\">\n    <p>Presupuesto generado automáticamente por Perla – NGR.</p>\n    <p>Fecha y hora de generación: 2025-11-21T13:43:52.306Z</p>\n    <p>Valores en ARS. Pueden variar según condiciones comerciales, stock y momento de cierre.</p>\n  </div>\n</body>\n</html>"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,49 @@
+meta {
+  name: preuba webhook post presupuesto
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://hooks.chatsappai.com/webhook/0f18de16-c554-43c0-a3e8-6c0523655a07
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {
+      "cuit": "345906323",
+      "razon_social": null,
+      "domicilio": "Mi Casa 123",
+      "telefono": "3548123123",
+      "contacto": "Facundo",
+      "email": "facundo@laburen.com",
+      "descuento_general": null,
+      "aclaraciones": null,
+      "articulos": [
+        {
+          "modelo": null,
+          "codigo": "NAG161B",
+          "cantidad": 1,
+          "descuento": null,
+          "opcionales": [
+            {
+              "codigo": "SSP061",
+              "cantidad": 2
+            },
+            {
+              "codigo": "NPS2",
+              "cantidad": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

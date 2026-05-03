@@ -1,0 +1,25 @@
+meta {
+  name: Enpoint postear consutlas
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://sucursal.suministra.com.ar/api/nuevaConsultaIA.php
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+     "dni": "10400966",
+    "token": "wjkyzOBYrBQXljdAWQYasEkzJaAlsBVfQxJYnRGWkVLGMYtYieFtrxtXEudVfxaZ",
+    "empresa": 11,
+    "consulta": "Esta es una consulta de prueba desde Laburen"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

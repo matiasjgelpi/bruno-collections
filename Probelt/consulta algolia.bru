@@ -1,0 +1,31 @@
+meta {
+  name: consulta algolia
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://LDSFXMU1UL-dsn.algolia.net/1/indexes/Listado de precios1/query/
+  body: json
+  auth: inherit
+}
+
+headers {
+  X-Algolia-Application-Id: LDSFXMU1UL
+  X-Algolia-API-Key: ccdbc8ae181ff974794019302ae56007
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "query": "Horno Combinado Lainox PFEN164",
+    "hitsPerPage": 1000,
+    "page": 0,
+    "attributesToRetrieve": "['objectID']"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

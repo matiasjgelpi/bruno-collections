@@ -1,0 +1,54 @@
+meta {
+  name: Login APi Suministra
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://sucursal.suministra.com.ar/api/loginIA.php
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: SumiMarceloT2005
+}
+
+body:json {
+  // {
+  //     "empresa" : 11,
+  //     "fnac" : "1989-07-23",
+  //     "dni" : "34591857"
+  //  
+  //}}
+  
+  
+  // {
+  //   "empresa": 11,
+  //   "fnac": "1989-07-23",
+  //   "dni": "34591857"
+  // }
+  
+  {
+    "empresa": 12,
+    "fnac": "2003-11-10",
+    "dni": "45456645"
+  }
+  
+  
+  // {
+  //   "empresa": 11,
+  //   "celular": "2236687794"
+  // }
+  
+  
+  // {
+  //   "empresa": 1,
+  //   "celular": "1165095223"
+  // }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

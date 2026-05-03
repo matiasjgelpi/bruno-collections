@@ -1,0 +1,24 @@
+meta {
+  name: Implementación accesorios
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://script.google.com/macros/s/AKfycbwlgWlGizCMQ0xFepFTH6WE0S9a6SVxfohI01VChg80VULw8zESsY8NiIJC-Ui4yt1Q/exec?resource=accesorios&camioneta_codigo=AMAROK_2010_PLUS&anio=2018&tiene_barra_ngr=true&con_laterales_ngr=true
+  body: none
+  auth: inherit
+}
+
+params:query {
+  resource: accesorios
+  camioneta_codigo: AMAROK_2010_PLUS
+  anio: 2018
+  tiene_barra_ngr: true
+  con_laterales_ngr: true
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

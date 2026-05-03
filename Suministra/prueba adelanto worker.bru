@@ -1,0 +1,31 @@
+meta {
+  name: prueba adelanto worker
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://suministra.seba-e94.workers.dev/adelanto
+  body: json
+  auth: inherit
+}
+
+body:json {
+  // {
+  //   "fnac" : "1952-09-29",
+  //   "dni": "10400966",
+  //   "empresa": 11,
+  //   "importe": 100000000,
+  //   "celular": "2236687794"
+  // }
+  {
+    "empresa": 11,
+    "importe": 10000,
+    "celular": "2236687794"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

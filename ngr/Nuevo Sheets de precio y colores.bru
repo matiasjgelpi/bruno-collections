@@ -1,0 +1,25 @@
+meta {
+  name: Nuevo Sheets de precio y colores
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://script.google.com/macros/s/AKfycbwlgWlGizCMQ0xFepFTH6WE0S9a6SVxfohI01VChg80VULw8zESsY8NiIJC-Ui4yt1Q/exec?resource=productos&modelo=hilux&color=rojo
+  body: none
+  auth: inherit
+}
+
+params:query {
+  resource: productos
+  modelo: hilux
+  color: rojo
+  ~anio: 2025
+  ~codigo: 9200
+  ~marca: 
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

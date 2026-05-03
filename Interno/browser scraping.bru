@@ -1,0 +1,26 @@
+meta {
+  name: browser scraping
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://api.cloudflare.com/client/v4/accounts/bcb97c0e3a3f21d0b89225a1c0d02f62/browser-rendering/crawl
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: L0fbGR3TZMnXTXF718PODmAnEIV3sw02zWciU9Da
+}
+
+body:json {
+  {
+    "url":"https://www.youtube.com/@SupraPixel/videos"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

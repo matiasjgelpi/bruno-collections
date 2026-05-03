@@ -1,0 +1,23 @@
+meta {
+  name: endpoint ocr
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/ocr-images-gemini
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(/C:/Users/matia/Pictures/Screenshots/Captura de pantalla 2025-10-22 084347.png)
+  prompt: Extraer solo el texto bien ordenado y estructurado
+  model: gemini-2.5-flash
+  workSpaceApiKey: 
+  ~apiKey: AIzaSyA76Oxt6VfORTYs9cQvPmI8JlzQaX0iy4k
+}
+
+settings {
+  encodeUrl: true
+}

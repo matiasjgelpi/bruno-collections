@@ -1,0 +1,25 @@
+meta {
+  name: Endpoint adelanto
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://sucursal.suministra.com.ar/api/nuevoAdelanto.php
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dni": "10400966",
+    "token": "wjkyzOBYrBQXljdAWQYasEkzJaAlsBVfQxJYnRGWkVLGMYtYieFtrxtXEudVfxaZ",
+    "empresa": 11,
+    "contrato": 242599
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

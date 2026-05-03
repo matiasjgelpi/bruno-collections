@@ -1,0 +1,26 @@
+meta {
+  name: prueba descarga recibos documenots worker
+  type: http
+  seq: 13
+}
+
+post {
+  url: https://suministra.seba-e94.workers.dev/firmar_recibo
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dni": "45456645",
+    "fnac": "2003-11-10",
+    "empresa": 12,
+    "contrato": 314083,
+    "lote": 796073
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Descarga recibos
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://sucursal.suministra.com.ar/api/pdf2.php
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "dni": "10400966",
+    "token": "wjkyzOBYrBQXljdAWQYasEkzJaAlsBVfQxJYnRGWkVLGMYtYieFtrxtXEudVfxaZ",
+    "contrato": "242599",
+    "lote": 779478
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
