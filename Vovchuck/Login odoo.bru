@@ -1,0 +1,36 @@
+meta {
+  name: Login odoo
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL_PROD}}/jsonrpc
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": {
+      "service": "common",
+      "method": "login",
+      "args": [
+        "{{BASE_DBNAME_PROD}}",
+        "{{TEST_USER}}",
+        "{{TEST_PASSWORD}}"
+      ]
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

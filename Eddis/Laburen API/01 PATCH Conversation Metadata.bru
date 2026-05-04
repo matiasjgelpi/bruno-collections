@@ -1,0 +1,44 @@
+meta {
+  name: 01 PATCH Conversation Metadata
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{laburenBaseUrl}}/conversations/{{conversationId}}/metadata
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{laburenApiKey}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "metadata": {
+      "metadata": {
+        "session_id": "{{sessionId}}"
+      }
+    }
+  }
+}
+
+docs {
+  Lo que dispara el Worker internamente desde /auth y /session/clear
+  (ver src/lib/laburen.ts).
+
+  Auth: Bearer {LABUREN_API_KEY}  — guardalo como secret en el environment.
+
+  Body shape (sí, el doble "metadata" es intencional según el endpoint de Laburen):
+    { "metadata": { "metadata": { "session_id": "<uuid>" | null } } }
+
+    - session_id: <uuid>  → marcar conversación como autenticada
+    - session_id: null    → limpiar (forzar re-auth en el próximo turno)
+
+  Response: 2xx OK. Si falla, el Worker logea pero no aborta (la KV manda).
+}

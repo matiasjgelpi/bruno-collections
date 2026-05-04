@@ -1,0 +1,32 @@
+meta {
+  name: 03 GET Curso datos
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{eddisBaseUrl}}/cursos/datos.php?token={{rawToken}}&idcur={{idcur}}&pais=ar
+  body: none
+  auth: none
+}
+
+params:query {
+  token: {{rawToken}}
+  idcur: {{idcur}}
+  pais: ar
+}
+
+docs {
+  Datos crudos de un curso. El Worker lo pasa por transformCurso.
+
+  Campos crudos relevantes:
+    avance, claseshechas, clasestotales,
+    motivobajades, fechabaja,
+    cuotas: [{ cuota, mes, importe, ppago, pagado ("0"|"1"), fechaven,
+               botonpago, texto2 }],
+    certificados: [{ titulo, disponible, pagado, linkcertificado }]
+
+  Convención EDDIS:
+    - cuota === "99" → derecho de examen (separado en transformCurso).
+    - pagado === "0" → pendiente.
+}

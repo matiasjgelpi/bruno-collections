@@ -1,0 +1,58 @@
+meta {
+  name: 03 GET Curso by ID
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{workerBaseUrl}}/curso
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{sessionId}}
+}
+
+body:json {
+  {
+    "idcurso": 174576
+  }
+}
+
+docs {
+  Detalle de un curso del alumno (avance, cuotas, certificados).
+  
+  Path param: idcur — id del curso (lo obtenés del array `cursos` en /alumno).
+  Header: Authorization: Bearer {session_id}
+  
+  Response 200 (shape de transformCurso):
+    {
+      "avance_pct": "...",
+      "clases": { "hechas": "...", "totales": "..." },
+      "estado_curso": "ACTIVO" | "<motivobaja>",
+      "fecha_baja": null | "...",
+      "cuotas_resumen": {
+        "al_dia": true|false,
+        "pendientes": <n>,
+        "proxima": null | { "mes": "...", "importe": "...", "fecha_vencimiento": "..." }
+      },
+      "derecho_examen": null | {
+        "habilitado": bool,
+        "pagado": bool,
+        "importe": "...",
+        "link_pago": "..."
+      },
+      "certificados": [
+        { "titulo": "...", "disponible": bool, "pagado": bool, "link": "..." }
+      ]
+    }
+  
+  Notas:
+    - cuota "99" del backend = derecho de examen (se separa en derecho_examen).
+    - cuotas_resumen excluye la cuota 99.
+  
+  Response 401: { "error": "token_expired" }
+  Response 404: { "error": "not_found" }
+  Response 502: { "error": "upstream_error", "detail": "..." }
+}

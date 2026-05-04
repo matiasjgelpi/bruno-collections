@@ -1,0 +1,77 @@
+meta {
+  name: Obtener balance desde odoo
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL_PROD}}/jsonrpc
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": {
+      "service": "object",
+      "method": "execute_kw",
+      "args": [
+        "{{BASE_DBNAME_PROD}}",
+        14,
+        "{{TEST_PASSWORD}}",
+        "account.move",
+        "search_read",
+        [
+          [
+            [
+              "partner_id",
+              "=",
+              7639
+            ],
+            [
+              "move_type",
+              "in",
+              [
+                "out_invoice",
+                "out_refund"
+              ]
+            ],
+            [
+              "state",
+              "=",
+              "posted"
+            ],
+            [
+              "amount_residual",
+              ">",
+              0
+            ]
+          ]
+        ],
+        {
+          "fields": [
+            "id",
+            "name",
+            "move_type",
+            "invoice_date",
+            "invoice_date_due",
+            "amount_total",
+            "amount_residual",
+            "currency_id",
+            "payment_state",
+            "ref"
+          ],
+          "limit": 100,
+          "order": "invoice_date_due asc, name asc"
+        }
+      ]
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

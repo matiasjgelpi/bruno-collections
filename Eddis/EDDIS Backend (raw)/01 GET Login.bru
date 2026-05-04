@@ -1,0 +1,40 @@
+meta {
+  name: 01 GET Login
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{eddisBaseUrl}}/api/auth/login.php?legajo={{legajo}}&documento={{documento}}&pais=ar
+  body: none
+  auth: none
+}
+
+params:query {
+  legajo: {{legajo}}
+  documento: {{documento}}
+  pais: ar
+}
+
+script:post-response {
+  if (res.status === 200 && res.body && res.body.token) {
+    bru.setEnvVar("rawToken", res.body.token);
+  }
+}
+
+docs {
+  Endpoint REAL del backend EDDIS (sin Worker en el medio).
+  
+  Query params:
+    - legajo
+    - documento
+    - pais=ar
+  
+  Response 200 esperada: { "success": true, "token": "..." , ... }
+  Response 200 con falla: { "success": false, ... }
+  
+  El Worker considera éxito SOLO si success===true y token es string
+  (ver transformAuth en src/lib/transform.ts).
+  
+  Auto-guarda token en {{rawToken}} para los próximos requests crudos.
+}

@@ -1,0 +1,53 @@
+meta {
+  name: Buscar partner por telèfono
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL_PROD}}/jsonrpc
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": {
+      "service": "object",
+      "method": "execute_kw",
+      "args": [
+        "{{BASE_DBNAME_PROD}}",
+        14,
+        "{{TEST_PASSWORD}}",
+        "res.partner",
+        "search_read",
+        [
+          [
+            [
+              "phone",
+              "ilike",
+              "+54 9 11 7000-0731"
+            ]
+          ]
+        ],
+        {
+          "fields": [
+            "id",
+            "name",
+            "phone",
+            "mobile",
+            "vat"
+          ],
+          "limit": 5
+        }
+      ]
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,34 @@
+meta {
+  name: 04 POST Session Clear
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{workerBaseUrl}}/session/clear
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "conversationId": "{{conversationId}}"
+  }
+}
+
+docs {
+  Limpia el session_id en la metadata de la conversación Laburen.
+  No toca la KV (la entry expira sola por TTL). El siguiente turno del
+  orquestador verá metadata.session_id = null y forzará re-auth.
+
+  Body:
+    - conversationId (string, requerido)
+
+  Response 200: { "cleared": true }
+  Response 400: { "error": "conversationId requerido" } | body inválido
+  Response 502: { "error": "upstream_error", "detail": "..." }
+}

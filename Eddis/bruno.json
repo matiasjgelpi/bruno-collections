@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "eddis-api-worker copy",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

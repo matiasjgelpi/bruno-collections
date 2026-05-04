@@ -1,0 +1,29 @@
+meta {
+  name: 02 GET Alumno datos
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{eddisBaseUrl}}/alumnos/datos.php?token={{rawToken}}&pais=ar
+  body: none
+  auth: none
+}
+
+params:query {
+  token: {{rawToken}}
+  pais: ar
+}
+
+docs {
+  Datos crudos del alumno desde EDDIS. El Worker los pasa por transformAlumno
+  antes de devolverlos al sub-agente.
+
+  Campos crudos relevantes (ver transformAlumno):
+    nombre, apellido, legajo, documento, email, telefono,
+    estadodes ("Activo" | otro),
+    fechaingreso,
+    centronom, centrodir, centrotel, centromail,
+    logincampus,
+    cursos: [{ id, nombre, ... }]
+}

@@ -1,0 +1,39 @@
+meta {
+  name: 02 GET Alumno
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{workerBaseUrl}}/alumno
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{sessionId}}
+}
+
+docs {
+  Devuelve el perfil del alumno (transformado).
+
+  Header: Authorization: Bearer {session_id}  (NO el token EDDIS)
+
+  Response 200 (shape de transformAlumno):
+    {
+      "nombre_completo": "Juan Perez",
+      "legajo": "12345",
+      "documento": "30123456",
+      "email": "...",
+      "telefono": "...",
+      "estado": "Activo" | "Inactivo",
+      "fecha_ingreso": "...",
+      "sede": { "nombre": "...", "direccion": "...", "tel": "...", "email": "..." },
+      "link_campus": "...",
+      "cursos": [{ "id": "...", "nombre": "..." }]
+    }
+
+  Response 401: { "error": "token_expired" } — sin Bearer o session expiró en KV
+  Response 404: { "error": "not_found" }
+  Response 502: { "error": "upstream_error", "detail": "..." }
+}
