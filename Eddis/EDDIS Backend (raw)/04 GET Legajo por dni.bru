@@ -1,0 +1,21 @@
+meta {
+  name: 04 GET Legajo por dni
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://servidoreddis.com.ar/api/alumnos/legajo_por_documento.php?documento={{documento}}&pais=ar
+  body: none
+  auth: inherit
+}
+
+params:query {
+  documento: {{documento}}
+  pais: ar
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

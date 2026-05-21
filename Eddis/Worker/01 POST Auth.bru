@@ -16,7 +16,7 @@ headers {
 
 body:json {
   {
-    "legajo": "{{legajo}}",
+  //   "legajo": "{{legajo}}",
     "documento": "{{documento}}",
     "conversationId": "{{conversationId}}"
   }
@@ -31,16 +31,16 @@ script:post-response {
 docs {
   Login contra EDDIS. Crea sesión KV (TTL 8h) y, si se pasa conversationId,
   hace PATCH a la metadata de Laburen guardando session_id.
-
+  
   Body:
     - legajo (string, requerido)
     - documento (string, requerido)
     - conversationId (string, opcional) — si está, persiste en metadata Laburen
-
+  
   Response 200: { "session_id": "uuid" }
   Response 400: { "error": "legajo y documento son requeridos" } | body inválido
   Response 401: { "error": "auth_failed" }
   Response 502: { "error": "upstream_error", "detail": "..." }
-
+  
   El script post-response auto-guarda session_id en el environment.
 }

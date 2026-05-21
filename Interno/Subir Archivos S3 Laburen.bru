@@ -1,0 +1,25 @@
+meta {
+  name: Subir Archivos S3 Laburen
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{AZURE_UPLOAD_URL}}
+  body: multipartForm
+  auth: inherit
+}
+
+headers {
+  x-api-key: {{AZURE_API_KEY}}
+}
+
+body:multipart-form {
+  file: @file(/home/matiasgelpi/Descargas/WhatsApp Image 2026-05-19 at 14.42.59.jpeg)
+  fileName: FlyerVovchuck.jpeg
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
