@@ -1,0 +1,28 @@
+meta {
+  name: 02 POST Crear conversación en el dash
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{laburenBaseUrl}}/agents/{{agentId}}/query-agent
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {apiKey}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "query": "Mensaje de prueba",
+    "channel": "api"
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

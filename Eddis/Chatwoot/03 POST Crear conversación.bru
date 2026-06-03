@@ -1,0 +1,32 @@
+meta {
+  name: 03 POST Crear conversación
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{crmURL}}/api/v1/accounts/{{crmAccountID}}/conversations
+  body: json
+  auth: inherit
+}
+
+headers {
+  api_access_token: {{crmApiKey}}
+}
+
+body:json {
+  {
+    "source_id": "542236687794",
+    "inbox_id": 74,
+    "contact_id": 6398,
+    "status": "open",
+    "message": {
+      "content": "Hola, mensaje inicial de prueba"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

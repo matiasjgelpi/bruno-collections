@@ -1,0 +1,30 @@
+meta {
+  name: 05 POST Envío templates
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{workerBaseUrl}}/broadcast
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "telefonos": [
+      "+5492236687794"
+  //     "+5492235171352"
+    ],
+    "templateKey": "bienvenida_teo"
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

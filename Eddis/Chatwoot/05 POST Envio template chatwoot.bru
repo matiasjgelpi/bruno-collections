@@ -1,0 +1,35 @@
+meta {
+  name: 05 POST Envio template chatwoot
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{crmURL}}/api/v1/accounts/{{crmAccountID}}/conversations/79/messages
+  body: json
+  auth: inherit
+}
+
+headers {
+  api_access_token: {{crmApiKey}}
+}
+
+body:json {
+  {
+    "content": "Hola! Soy Teo, tu asesor virtual de Eddis Educativa...",
+    "message_type": "outgoing",
+    "template_params": {
+      "name": "bienvenida_teo",
+      "category": "MARKETING",
+      "language": "es_AR",
+      "processed_params": {
+        "body": {}
+      }
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

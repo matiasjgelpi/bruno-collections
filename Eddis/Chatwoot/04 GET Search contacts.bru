@@ -1,0 +1,24 @@
+meta {
+  name: 04 GET Search contacts
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{crmURL}}/api/v1/accounts/{{crmAccountID}}/contacts/search?q=5492236687794
+  body: none
+  auth: inherit
+}
+
+params:query {
+  q: 5492236687794
+}
+
+headers {
+  api_access_token: {{crmApiKey}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

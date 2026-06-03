@@ -1,0 +1,29 @@
+meta {
+  name: 02 POST crear contacto
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{crmURL}}/api/v1/accounts/{{crmAccountID}}/contacts
+  body: json
+  auth: inherit
+}
+
+headers {
+  api_access_token: {{crmApiKey}}
+}
+
+body:json {
+  {
+    "name": "Test Manual",
+    "phone_number": "+5492236687794",
+    "inbox_id": 74,
+    "source_id": "5492236687794"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

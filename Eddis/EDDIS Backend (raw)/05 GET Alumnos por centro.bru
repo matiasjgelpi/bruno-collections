@@ -1,0 +1,20 @@
+meta {
+  name: 05 GET Alumnos por centro
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://servidoreddis.com.ar/api/alumnos/alumnosxcentro.php?centro=32
+  body: none
+  auth: inherit
+}
+
+params:query {
+  centro: 32
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,34 @@
+meta {
+  name: 03 Crear conversaciones en el crm
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{laburenBaseUrl}}/agents/{{agentId}}/query-agent
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{laburenAPIKEY}}
+}
+
+body:json {
+  {
+    "visitorId": "{{crmInstaceID}}_{{crmAccountID}}_79",
+    "query": "Mensaje de prueba",
+    "conversationId": "{{crmInstaceID}}_{{crmAccountID}}_79",
+    "streaming": false,
+    "channel": "api"
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}
